@@ -10,7 +10,7 @@ Suppose a company's web application (Online Stores) relies on a database hosted 
 </p>
 <h5 align="center"> Network Architecture</h5>
 
-<h2 align="left"> Creating the VPC</h2>
+<h3 align="left"> Creating the VPC</h3>
 
 Based on the network architecture, I created a VPC with a CIDR of 192.168.0.0/16.
 
@@ -36,7 +36,7 @@ Next, I created the internet gateway which I attached to the vpc.
 <h5 align="center"> Attaching Internet Gateway To VPC</h5>
 
 
-<h2 align="left"> Creating Subnets</h2>
+<h3 align="left"> Creating Subnets</h3>
 
 Next, I created the two public subnets in different AZs, Subnet A in us-east-1a and Subnet B in us-east-1c. After creation, I edited the subnet settings to auto-assign IPv4 address to both public subnets.
 
@@ -64,7 +64,7 @@ Configuring Subnet Settings to Auto-Assign IPv4 Address to Subnets
 
 Click the save button after ticking the box to enable the auto-assign public IPv4 address
 
-<h2 align="left"> Creating and Configuring Route Table</h2>
+<h3 align="left"> Creating and Configuring Route Table</h3>
 
 A default route is usually created after a vpc is created. I edited the name to "Main RT - Online Store" and edited the routing table to send all internet-bound traffic through the IGW. I also associated both subnets with the main route.
 
@@ -76,7 +76,7 @@ A default route is usually created after a vpc is created. I edited the name to 
 <img src="attaching-both-subnets-to-rt" height="60%" width="80%"/>
 </p>
 
-<h2 align="left"> Configuring Security Group</h2>
+<h3 align="left"> Configuring Security Group</h3>
 
 I renamed the default security group that was created to 'Online Store SG' and configured it to allow SSH and HTTP traffic from my IP address.
 
@@ -84,7 +84,7 @@ I renamed the default security group that was created to 'Online Store SG' and c
 <img src="editing-sg-inbound-rules" height="60%" width="80%"/>
 </p>
 
-<h2 align="left"> Launching The EC2 Instance</h2>
+<h3 align="left"> Launching The EC2 Instance</h3>
 
 The next step is to configure and launch an EC2 Instance in each availability zone, with the one in Subnet A tagged old and Subnet B tagged new. During the creation of the EC2 Instance in Subnet A, I added a new volume with a size of 10 GiB, which would serve as the attached EBS volume. 
 
@@ -216,7 +216,7 @@ sudo wget -O Olympic.jpg https://img.olympics.com/images/image/private/t_s_16_9_
 </p>
 I renamed the newly created volume, MyVolume2
 
-<h2 align="left"> Attaching the New EBS Volume to EC2 Instance in US-EAST-1C</h2>
+<h3 align="left"> Attaching the New EBS Volume to EC2 Instance in US-EAST-1C</h3>
 
 <p align="center">
 <img src="attaching-ebs-volume-2nd-ec2 instance1" height="60%" width="40%"/>
@@ -230,7 +230,7 @@ I renamed the newly created volume, MyVolume2
 <img src="attaching-ebs-volume-2nd-ec2 instance3" height="60%" width="40%"/>
 </p>
 
-<h2 align="left"> Testing and Validation</h2>
+<h3 align="left"> Testing and Validation</h3>
 
 Login To The Second EC2 Instance (Online Store DB - NEW)
 
